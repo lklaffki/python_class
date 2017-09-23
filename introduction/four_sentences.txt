@@ -1,0 +1,4 @@
+Our first sentence has six words.
+The second only four.
+The third sentence contains more than seven words.
+Last at least is the longest, because we want to validate this example.
