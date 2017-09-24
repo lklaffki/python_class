@@ -17,3 +17,5 @@ while myCounter<5:
 		myText=myText +a[myCounter]
 	myCounter=myCounter+1
 print (myText)
+b="myText"
+print (b)

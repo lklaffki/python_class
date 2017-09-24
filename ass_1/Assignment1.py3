@@ -19,26 +19,21 @@ words=text.split(" ")
 print ("This text contains", len (words), "words.")
 
 ## 3. ordering the sentences according to their length (amount of words)
-# Wörter pro Satz zählen
-#dann sortieren
 
-for i in range(0,7,1):
-	text=text 
-	print (len(text))
+# def calWords(a):
+	#myWords = []
+	## trying to create a list with the results	
+for i in range(0, len(lines)-1):
+	myWords=len(lines[i].split(" "))
+	#myWords.insert(i, temp)
+	## trying to give more then one result to the list	
+	print (myWords)
 
+#a=calWords(text)
+#print (a)
 
-
-#for lines in range(0,7,1):
-#	if lines==".":
-#		len(lines).sort()
-#		print (lines)
-
-#for line in text:
-#	if line==".":
-#		print (len(line))
-
-
-#.sort
+#.print (
+#	"The longest sentence in this text contains", len, "words. \
 #	The second longest sentence in this text contains", len, "words. \
 #	The third longest sentence in this text contains", len, "words. \
 #	The forth longest sentence in this text contains", len, "words. \
@@ -47,6 +42,15 @@ for i in range(0,7,1):
 #	The shortest sentence in this text contains", len, "words.")
 
 ## 4. ordering the five longest words alphabetically
+
+def calChar(b):
+	for i in a:
+		myChar=len(words[i].split(" "))
+		print (myChar)
+a=text
+#c=calChar(text)
+#print (c)
+
 
 #print ("The five longest words in the text are in alphabatic order:"
 	#)
