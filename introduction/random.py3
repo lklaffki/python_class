@@ -29,18 +29,14 @@ for i in range(0,5,1):
 
 	if x < number:
 		print ("Guess a bigger number!") 
-			#You have ")
-		#print (myTrials)
-		#print ("trials left. Try again!")
+			#You have ", myTrials, trials left. Try again!")
+		
 	if x > number:
 		print ("Guess a smaller number!") 
-			#You have ")
-		#print (myTrials)
-		#print ("trials left. Try again!")
+			#You have ", myTrials, trials left. Try again!")
+
 	if x == number:
 	# kann es hier if heißen oder muss es ein else geben?
 		print ("Congratulations!") 
-		#You have needed")
-		#print (myTrials)
-		#print ("trials to succeed.")
+		#You have needed", myTrials, "trials to succeed.")
 		break	

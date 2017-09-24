@@ -15,7 +15,7 @@ text = f.read()
 #print ("number of words", words)
 #print ("number of characters", characters)
 
-## same result, shhorter way
+## same result, shorter way
 ## 5 lines, because empty cell after last punctuation markt; therefore -1
 lines=text.split(".")
 print ("number of lines", len (lines)-1)
