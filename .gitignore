@@ -101,3 +101,5 @@ ENV/
 .mypy_cache/
 *.pdf
 ass_1/klaffki_assig1.zip
+*.rtf
+*.txt
