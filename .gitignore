@@ -103,3 +103,7 @@ ENV/
 ass_1/klaffki_assig1.zip
 *.rtf
 *.txt
+*.css
+*.js
+*.png
+*.html
