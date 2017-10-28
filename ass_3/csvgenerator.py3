@@ -1,12 +1,16 @@
-f = open("Sapir1921_chapter1.txt","Muller1861_lecture.txt","stopwordlist.txt")
-orig_text = f.read()
+f_chapter1 = open("Sapir1921_chapter1.txt", encoding="utf-8")
+f_chapter2 = open("Muller1861_lecture.txt", encoding="utf-8")
+f_stopwordlist = open("stopwordlist.txt", encoding="utf-8")
+
+orig_chapter1 = f.read("Sapir1921_chapter1.txt")
+orig_chapter2 = f.read("Muller1861_lecture.txt")
 
 ### cleaning of the textfiles
 ### replace the backlashes with whitespaces and assign it to a new variable
 text = orig_text.replace("\\"," ")
 
 ### how to get rid of the start?
-### how to deal effectively woth two texts at once while storing the information?
+### how to deal effectively with two texts at once while storing the information?
 
 ## Task 1: top ten longest sentences, put into a csv file
 ### splitting texts in sentences
@@ -16,7 +20,7 @@ lines = text.split(".")
 wordsPerLine = [line.split(" ") for line in lines]
 
 ### length (number of words)
-### working with that? get longest sentence
+### working with that? gets longest sentence
 longest_sen = max(wordsPerLine, key=len)
 
 ### sentence itself
@@ -26,7 +30,13 @@ longest_sen = max(wordsPerLine, key=len)
 ### ranking (longest sentence rank 1)
 
 
+header1 = "length", "sentence", "chapter", "ranking\n"
+data1 = ""
 
+csvString1 = header1 + data1
+
+fw = open("task1csv.csv", "w+", encoding="utf-8")
+fw.write(csvString1)
 
 ## Task 2: top ten most frequent words, put into a csv file
 ### further text cleaning: getting rid of all punctuation marks
@@ -35,6 +45,9 @@ word_text = text.replace("--"," ").replace("."," ").replace(","," ").replace(";"
 
 ### split the text in words
 words = word_text.split(" ")
+
+### lower case to count all word occurences, also on the beginning of a sentence
+words = words.lower()
 
 ### reuse of the functions from assignment 2
 ### this function that checks, if word is a stopword and returns it if not
@@ -69,6 +82,13 @@ sortedDict = sortDict(dictionary)
 
 ### chapter
 
+header2 = "keyword", "frequency", "length", "chapter\n"
+data2 = ""
 
-### closing the calls from line 1 and line 55
+csvString2 = header2 + data2
+
+fw = open("task2csv.csv", "w+", encoding="utf-8")
+fw.write(csvString2)
+
+### closing all opened files 
 f.close()
