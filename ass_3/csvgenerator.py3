@@ -16,7 +16,6 @@ text2 = orig_chapter2.replace("\\"," ").replace(","," ").replace(";"," ").replac
 ### creating the csv file
 header1 = "length, sentence, chapter, ranking\n"
 data1 = ""
-csvString1 = header1 + data1
 
 ### splitting texts in sentences
 lines1 = text1.split(".")
@@ -26,25 +25,27 @@ lines2 = text2.split(".")
 wordsPerLine1 = [line.split(" ") for line in lines1]
 wordsPerLine2 = [line.split(" ") for line in lines2]
 
-
-# noch modifizieren, Daten erst nach Sort mit Top Ten schreiben
-#for i in range(len(wordsPerLine1)):
-# 	data1 = data1 + str(len(wordsPerLine1[i])) + "," + str(' '.join(wordsPerLine1[i])) + ",1\n"
+### creating data
+for i in range(len(wordsPerLine1)):
+ 	data1 = data1 + str(len(wordsPerLine1[i])) + "," + str(' '.join(wordsPerLine1[i])) + ",1\n"
  	
-# for i in range(len(wordsPerLine2)):
-#  	data1 = data1 + str(len(wordsPerLine2[i])) + "," + str(' '.join(wordsPerLine2[i])) + ",2\n"
+for m in range(len(wordsPerLine2)):
+  	data1 = data1 + str(len(wordsPerLine2[m])) + "," + str(' '.join(wordsPerLine2[m])) + ",2\n"
+
+csvString1 = header1 + data1 
 
 ### writing the csv file
-# fw = open("task1csv.csv", "w+")
-# fw.write(csvString1)
+fw = open("task1csv.csv", "w+")
+fw.write(csvString1)
 
 
 ## Task 2: top ten most frequent words, put into a csv file
 
-### creating the csv file
-header2 = "keyword, frequency, length, chapter\n"
-data2 = ""
-csvString2 = header2 + data2
+### creating the csv file as shown in video 
+### could not store the data in it, so resumed to another way to wrtie csv
+#header2 = "keyword, frequency, length, chapter\n"
+#data2 = ""
+
 
 words1 = text1.replace("."," ").split(" ")
 words2 = text2.replace("."," ").split(" ")
@@ -86,16 +87,33 @@ dictionary2 = wordListToDict(cleanedWords2)
 sortedDict1 = sortDict(dictionary1)
 sortedDict2 = sortDict(dictionary2)
 
-### keyword (word itself), frequency, length (number of characters), 	chapter
+### keyword (word itself), frequency, length (number of characters), chapter
 
-print (sortedDict1[0:10])
-print (sortedDict2[0:10])
+result1 = sortedDict1[0:10]
+result2 = sortedDict2[0:10]
 
-data2 = data2 + str(keyword) + "," + str() + ",1\n"
-data2 = + ",2\n"
+import csv
 
-fw = open("task2csv.csv", "w+")
-fw.write(csvString2)
+item_length1 = len(result1[0])
+item_length2 = len(result2[0])
+
+with open("task2csv.csv", "w+") as output:
+	file_writer = csv.writer(output)
+	file_writer.writerow(["frequency", "keyword", "length", "chapter"])
+	for n in range(item_length1):
+		file_writer.writerows(result1)
+	for m in range(item_length2):
+		file_writer.writerows(result2)
+
+
+# for n in result1:
+# 	data2 = data2 + str(result1[0]) + "," + ",1\n"
+# 	#data2 = data2 + + ",2\n"
+
+#csvString2 = header2 + data2
+
+#fw = open("task2csv.csv", "w+")
+#fw.write(csvString2)
 
 ### closing all opened files 
-#f.close()
+f.close()
