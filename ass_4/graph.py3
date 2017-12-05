@@ -1,4 +1,5 @@
 from PIL import Image
+### reactangle, in this case a square
 
 rectangle = Image.new ('RGB', (150,150), (0,0,0)) ###black
 ### nested loop
